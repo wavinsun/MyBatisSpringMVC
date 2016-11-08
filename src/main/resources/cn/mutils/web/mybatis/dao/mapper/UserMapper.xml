@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mutils.web.mybatis.dao.mapper.UserMapper">
+    <resultMap type="User" id="UserResultMap">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="pass" column="pass"/>
+    </resultMap>
+    <select id="getUser" parameterType="Integer" resultType="User" resultMap="UserResultMap">
+        <![CDATA[
+
+            SELECT * from user u
+                WHERE u.id = #{id}
+
+        ]]>
+    </select>
+</mapper>
