@@ -1,5 +1,6 @@
 package cn.mutils.web.mybatis.service;
 
+import cn.mutils.web.mybatis.common.page.Page;
 import cn.mutils.web.mybatis.dao.mapper.UserMapper;
 import cn.mutils.web.mybatis.model.User;
 import org.slf4j.Logger;
@@ -22,6 +23,13 @@ public class UserService {
     public User getById(Integer id) {
         logger.debug("getById() is executed! $id : {}", id);
         return userMapper.getUser(id);
+    }
+
+    public Page<User> getByPage(int pageNo, int pageSize) {
+        logger.debug("getByPage() is executed!");
+        Page<User> page = new Page<>(pageNo, pageSize);
+        userMapper.getUsers(page);
+        return page;
     }
 
 }

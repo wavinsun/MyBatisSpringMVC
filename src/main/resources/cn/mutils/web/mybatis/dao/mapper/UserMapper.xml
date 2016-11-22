@@ -6,11 +6,18 @@
         <result property="name" column="name"/>
         <result property="pass" column="pass"/>
     </resultMap>
-    <select id="getUser" parameterType="Integer" resultType="User" resultMap="UserResultMap">
+    <select id="getUser" resultMap="UserResultMap">
         <![CDATA[
 
             SELECT * from user u
                 WHERE u.id = #{id}
+
+        ]]>
+    </select>
+    <select id="getUsers" resultType="User" resultMap="UserResultMap">
+        <![CDATA[
+
+            SELECT * from user u
 
         ]]>
     </select>
