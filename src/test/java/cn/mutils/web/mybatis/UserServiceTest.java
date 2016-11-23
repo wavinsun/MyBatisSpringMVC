@@ -30,4 +30,14 @@ public class UserServiceTest {
         logger.debug("Page size is {}", page.getSize());
     }
 
+    @Test
+    public void testAddUser(){
+        userService.addUser();
+    }
+
+    @Test
+    public void testAddUserNest(){
+        userService.addUserNest();
+    }
+
 }

@@ -14,11 +14,16 @@
 
         ]]>
     </select>
-    <select id="getUsers" resultType="User" resultMap="UserResultMap">
+    <select id="getUsers" resultMap="UserResultMap">
         <![CDATA[
 
             SELECT * from user u
 
         ]]>
     </select>
+    <insert id="addUser">
+        <![CDATA[
+          INSERT INTO user(id,name,pass) VALUES (#{id},#{name},#{pass});
+        ]]>
+    </insert>
 </mapper>

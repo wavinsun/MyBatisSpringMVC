@@ -6,6 +6,7 @@ import cn.mutils.web.mybatis.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -31,5 +32,23 @@ public class UserService {
         userMapper.getUsers(page);
         return page;
     }
+
+    @Transactional
+    public void addUser() {
+        userMapper.addUser(2, "name2", "pass2");
+        userMapper.addUser(1, "name1", "pass2");
+    }
+
+    @Transactional
+    public void addUserOne() {
+        userMapper.addUser(2, "name2", "pass2");
+    }
+
+    @Transactional
+    public void addUserNest() {
+        addUserOne();
+        throw new RuntimeException("I am an exception.");
+    }
+
 
 }
