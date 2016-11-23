@@ -11,6 +11,8 @@
 
     <context:property-placeholder location="classpath:config.properties"/>
 
+    <bean id="startupActivity" class="cn.mutils.web.mybatis.StartupActivity" init-method="init" ></bean>
+
     <bean id="pageInterceptor" class="cn.mutils.web.mybatis.common.page.PageInterceptor"></bean>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
